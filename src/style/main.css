@@ -1,0 +1,389 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Geist";
+  src: local("Geist"), url("/fonts/Geist.woff2") format("woff2");
+  font-weight: 100 900;
+}
+
+@layer base {
+  * {
+    @apply min-w-0;
+  }
+
+  :root {
+    --c-lantern-body: hsl(262, 38%, 20%);
+    --c-lantern-light: hsl(23, 98%, 75%);
+    --c-lantern-glow: hsl(343, 83%, 63%);
+
+    /*noinspection CssBrowserCompatibilityForProperties*/
+    color-scheme: light;
+    --base-50: 240deg 50% 97%;
+    --base-100: 240deg 25% 95%;
+    --base-200: 244deg 10% 90%;
+    --base-300: 243deg 10% 80%;
+    --base-400: 245deg 10% 65%;
+    --base-500: 245deg 10% 50%;
+    --base-600: 245deg 10% 35%;
+    --base-700: 245deg 10% 20%;
+    --base-800: 247deg 10% 10%;
+    --base-900: 252deg 25% 5%;
+    --base-950: 260deg 50% 3%;
+    --primary-50: 258deg 75% 97%;
+    --primary-100: 258deg 75% 95%;
+    --primary-200: 258deg 75% 82.5%;
+    --primary-300: 258deg 75% 70%;
+    --primary-400: 258deg 75% 60%;
+    --primary-500: 258deg 75% 50%;
+    --primary-600: 258deg 75% 40%;
+    --primary-700: 258deg 75% 30%;
+    --primary-800: 258deg 75% 17.5%;
+    --primary-900: 258deg 75% 7.5%;
+    --primary-950: 258deg 75% 3%;
+    --secondary-50: 300deg 73% 97%;
+    --secondary-100: 300deg 75% 95%;
+    --secondary-200: 300deg 75% 82.5%;
+    --secondary-300: 300deg 75% 70%;
+    --secondary-400: 300deg 75% 60%;
+    --secondary-500: 300deg 75% 50%;
+    --secondary-600: 300deg 75% 40%;
+    --secondary-700: 300deg 75% 30%;
+    --secondary-800: 300deg 75% 17.5%;
+    --secondary-900: 300deg 75% 7.5%;
+    --secondary-950: 300deg 75% 3%;
+    --success-50: 144deg 75% 97%;
+    --success-100: 144deg 75% 85%;
+    --success-200: 144deg 75% 72.5%;
+    --success-300: 144deg 75% 65%;
+    --success-400: 144deg 75% 50%;
+    --success-500: 144deg 75% 40%;
+    --success-600: 144deg 75% 30%;
+    --success-700: 144deg 75% 20%;
+    --success-800: 144deg 75% 7.5%;
+    --success-900: 144deg 75% 2.5%;
+    --success-950: 144deg 75% 1%;
+    --info-50: 216deg 75% 97%;
+    --info-100: 216deg 75% 95%;
+    --info-200: 216deg 75% 82.5%;
+    --info-300: 216deg 75% 70%;
+    --info-400: 216deg 75% 60%;
+    --info-500: 216deg 75% 50%;
+    --info-600: 216deg 75% 40%;
+    --info-700: 216deg 75% 30%;
+    --info-800: 216deg 75% 17.5%;
+    --info-900: 216deg 75% 7.5%;
+    --info-950: 216deg 75% 3%;
+    --danger-50: 0deg 76% 97%;
+    --danger-100: 0deg 76% 95%;
+    --danger-200: 0deg 75% 82.5%;
+    --danger-300: 0deg 75% 70%;
+    --danger-400: 0deg 75% 60%;
+    --danger-500: 0deg 75% 50%;
+    --danger-600: 0deg 75% 40%;
+    --danger-700: 0deg 75% 30%;
+    --danger-800: 0deg 75% 17.5%;
+    --danger-900: 0deg 75% 7.5%;
+    --danger-950: 0deg 75% 3%;
+  }
+
+  :root {
+    --font-sans: "Geist", -system-ui, -apple-system, BlinkMacSystemFont,
+      "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue",
+      Helvetica, Arial, sans-serif;
+    --font-title: "Geist", -system-ui, -apple-system, BlinkMacSystemFont,
+      "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue",
+      Helvetica, Arial, sans-serif;
+
+    --background: var(--base-950);
+    --foreground: var(--base-50);
+
+    --muted: var(--base-700);
+    --muted-foreground: var(--base-200);
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 258.2 40% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 258.2 40% 4.9%;
+
+    --border: var(--base-400);
+    --input: var(--base-400);
+
+    --primary: var(--primary-500);
+    --primary-foreground: 0 0% 100%; /* white */
+
+    --secondary: 258.2 47.4% 11.2%;
+    --secondary-foreground: 210 40% 98%;
+
+    --accent: var(--secondary-400);
+    --accent-foreground: 0 0% 100%; /* white */
+
+    --destructive: var(--danger-400);
+    --destructive-foreground: 0 0% 100%; /* white */
+
+    --info: var(--info-400);
+    --info-foreground: var(--info-950);
+
+    --success: var(--success-500);
+    --success-foreground: 0 0% 0%;
+
+    --ring: var(--primary-500);
+
+    --radius: 0.5rem;
+  }
+
+  [data-theme="dark"] {
+    --popover: 258.2 40% 3%;
+    --popover-foreground: 210 40% 98%;
+
+    --card: 258.2 40% 3%;
+    --card-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 98%;
+    --secondary-foreground: 258.2 47.4% 11.2%;
+  }
+
+  [data-theme="auto"] {
+    @media (prefers-color-scheme: dark) {
+      --popover: 258.2 40% 3%;
+      --popover-foreground: 210 40% 98%;
+
+      --card: 258.2 40% 3%;
+      --card-foreground: 210 40% 98%;
+
+      --secondary: 210 40% 98%;
+      --secondary-foreground: 258.2 47.4% 11.2%;
+    }
+  }
+}
+
+@layer base {
+  body {
+    background-image: radial-gradient(
+        circle at 28% 37%,
+        hsl(var(--primary-300) / 0.1),
+        transparent 40%
+      ),
+      radial-gradient(
+        circle at 70% 66%,
+        hsl(var(--secondary-300) / 0.1),
+        transparent 40%
+      );
+    @apply bg-background text-foreground;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-title font-bold text-balance;
+  }
+}
+
+@layer components {
+  .link {
+    padding-bottom: 1px;
+    background-image: linear-gradient(#000, #000);
+    background-position: 0 100%;
+    background-size: 0 1px;
+    background-repeat: no-repeat;
+    transition: background-size 0.3s, background-position 0s 0.3s;
+  }
+
+  .link:hover {
+    background-position: 100% 100%;
+    background-size: 100% 1px;
+  }
+
+  .main {
+    @apply px-4 py-8 md:py-16 max-w-[64rem] mx-auto;
+  }
+
+  img {
+    @apply object-cover;
+  }
+
+  .button {
+    @apply px-3 rounded-lg bg-primary text-primary-foreground h-11 hover:bg-primary/90 transition-all flex justify-center items-center w-fit gap-2;
+  }
+
+  .button.destructive {
+    @apply bg-destructive text-destructive-foreground;
+  }
+
+  .button.secondary {
+    @apply bg-secondary text-secondary-foreground;
+  }
+
+  .button.accent {
+    @apply bg-accent text-accent-foreground;
+  }
+
+  input,
+  textarea {
+    @apply border-input outline-border rounded-lg focus-within:border-primary disabled:opacity-60 disabled:cursor-not-allowed h-11;
+  }
+
+  input[type="text"],
+  input[type="number"],
+  input[type="password"],
+  input[type="email"],
+  textarea {
+    @apply border-input rounded-lg focus-within:border-primary focus:border-primary;
+  }
+
+  textarea {
+    @apply h-auto;
+  }
+
+  select {
+    @apply md:w-auto rounded-lg focus:border-primary focus-within:border-primary !py-0;
+  }
+
+  .lantern {
+    display: flex;
+    flex-direction: column;
+    left: calc(50%);
+    position: absolute;
+    transform: translateX(-50%);
+  }
+
+  .lantern-handle {
+    border: 6px solid hsl(257, 41%, 27%);
+    border-radius: 50px;
+    height: 105px;
+    width: 200px;
+  }
+  .lantern-inner {
+    animation: lantern-anim 1.2s ease-in-out alternate infinite;
+    margin-top: -5px;
+    transform-origin: top center;
+  }
+  .lantern-chain {
+    --height: 5vh;
+    height: var(--height);
+  }
+  .lantern-chain::before {
+    --c: hsl(260, 38%, 34%);
+
+    background-color: var(--c);
+    content: "";
+    display: block;
+    height: 100%;
+    margin: 0 auto;
+    width: 10px;
+  }
+
+  .lantern-head::before,
+  .lantern-head::after {
+    background: var(--c-lantern-body);
+    border-radius: 5px;
+    content: "";
+    display: block;
+    height: 15px;
+  }
+  .lantern-head::before {
+    margin: 0 auto;
+    width: 100px;
+  }
+  .lantern-head::after {
+    border-radius: 3px;
+    height: 20px;
+    margin: 3px auto;
+    width: 60px;
+  }
+
+  .lantern-body {
+    perspective: 350px;
+    position: relative;
+    border-radius: 50px;
+  }
+  .lantern-body::before {
+    background-color: var(--c-lantern-light);
+    border: 8px solid var(--c-lantern-body);
+    border-radius: 50px;
+    box-shadow: inset 0 0 0 5px var(--c-lantern-light),
+      inset 0 0 0 20px var(--c-lantern-glow);
+    content: "";
+    display: block;
+    height: 165px;
+    margin: 0 auto;
+    perspective: 100px;
+    transform: rotateX(20deg) translateY(-20px);
+    transform-origin: center center;
+    width: 120px;
+  }
+  .lantern-body::after {
+    --c: hsl(321, 41%, 42%);
+    background-color: var(--c);
+    border-radius: 4px;
+    box-shadow: -5px 115px 0 1px var(--c), 5px 115px 0 1px var(--c);
+    content: "";
+    display: block;
+    height: 7px;
+    margin: -7px auto 0;
+    transform: translateY(-152px);
+    width: 40px;
+  }
+
+  .lantern-flame {
+    background-color: #fff;
+    border-radius: 50%;
+    height: 30px;
+    left: calc(50% - 15px);
+    position: absolute;
+    top: calc(45% - 15px);
+    width: 30px;
+  }
+
+  .lantern-base {
+    background: var(--c-lantern-body);
+    border-radius: 5px;
+    display: block;
+    height: 15px;
+    margin: -15px auto 0;
+    width: 70px;
+  }
+
+  @keyframes lantern-anim {
+    0% {
+      transform: rotateZ(1deg);
+    }
+    100% {
+      transform: rotateZ(-1deg);
+    }
+  }
+
+  .title {
+    text-shadow: 0 4px 12px hsl(var(--primary-500));
+  }
+
+  .sideways {
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+  }
+}
+
+.line-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.line {
+  width: 100%;
+  height: 1px;
+  background: hsl(var(--base-400));
+}
+
+.label {
+  min-width: 24px;
+}
+
+.lined {
+  position: absolute;
+}
